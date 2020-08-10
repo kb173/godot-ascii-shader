@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://addons/ascii-shader/AsciiRenderer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="CubeMesh" id=4]
 
@@ -10,6 +11,12 @@ albedo_color = Color( 1, 0, 1, 1 )
 [sub_resource type="CapsuleMesh" id=6]
 radius = 2.98
 mid_height = 6.941
+
+[sub_resource type="PlaneMesh" id=7]
+size = Vector2( 10, 10 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_texture = ExtResource( 2 )
 
 [node name="Demo" type="Spatial"]
 
@@ -24,3 +31,10 @@ mesh = SubResource( 6 )
 material/0 = null
 
 [node name="AsciiRenderer" parent="." instance=ExtResource( 1 )]
+cast_shadow = 0
+extra_cull_margin = 16384.0
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.512508, -0.858683, 0, 0.858683, 0.512508, 1.78742, 2.04265, -7.38823 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
