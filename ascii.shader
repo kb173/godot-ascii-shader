@@ -3,7 +3,7 @@ render_mode unshaded;
 
 uniform sampler2D character_map;
 
-uniform vec2 character_count = vec2(200.0, 50.0);
+uniform vec2 character_size = vec2(8.0, 16.0);
 
 void vertex() {
 	// Cover the viewport with the mesh
@@ -11,6 +11,8 @@ void vertex() {
 }
 
 void fragment() {
+	vec2 character_count = VIEWPORT_SIZE / character_size;
+	
 	// Clamp the screen UV coordinates to the future ASCII character grid
 	vec2 clamped_uv = floor(SCREEN_UV * character_count) / character_count;
 	vec2 uv_cutoff = SCREEN_UV * character_count - floor(SCREEN_UV * character_count);

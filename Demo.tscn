@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ascii.shader" type="Shader" id=1]
 [ext_resource path="res://character_map.png" type="Texture" id=2]
@@ -7,18 +7,30 @@
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 1 )
-shader_param/character_count = Vector2( 200, 50 )
+shader_param/character_size = Vector2( 8, 16 )
 shader_param/character_map = ExtResource( 2 )
 
 [sub_resource type="CubeMesh" id=4]
 
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 1, 0, 1, 1 )
+
+[sub_resource type="CapsuleMesh" id=6]
+radius = 2.98
+mid_height = 6.941
+
 [node name="Spatial" type="Spatial"]
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="AsciiScreen" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
 material/0 = SubResource( 3 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.552106, 0.61121, -0.0295248 )
+[node name="Cube" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29525, 0.61121, -0.0295248 )
 mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01063, 0, 0 )
+mesh = SubResource( 6 )
 material/0 = null
