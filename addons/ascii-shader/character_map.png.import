@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/character_map.png-8ada04ea1017a6b33af4009b062fa585.stex"
+path="res://.import/character_map.png-8a3db54e9896c8abee66212a73579efd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character_map.png"
-dest_files=[ "res://.import/character_map.png-8ada04ea1017a6b33af4009b062fa585.stex" ]
+source_file="res://addons/ascii-shader/character_map.png"
+dest_files=[ "res://.import/character_map.png-8a3db54e9896c8abee66212a73579efd.stex" ]
 
 [params]
 

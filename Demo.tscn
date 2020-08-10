@@ -1,15 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://ascii.shader" type="Shader" id=1]
-[ext_resource path="res://character_map.png" type="Texture" id=2]
-
-[sub_resource type="QuadMesh" id=1]
-
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 1 )
-shader_param/number_of_characters = 8.0
-shader_param/character_size = Vector2( 8, 16 )
-shader_param/character_map = ExtResource( 2 )
+[ext_resource path="res://addons/ascii-shader/AsciiRenderer.tscn" type="PackedScene" id=1]
 
 [sub_resource type="CubeMesh" id=4]
 
@@ -22,10 +13,6 @@ mid_height = 6.941
 
 [node name="Demo" type="Spatial"]
 
-[node name="AsciiRenderer" type="MeshInstance" parent="."]
-mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
-
 [node name="Cube" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29525, 0.61121, -0.0295248 )
 mesh = SubResource( 4 )
@@ -35,3 +22,5 @@ material/0 = SubResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01063, 0, 0 )
 mesh = SubResource( 6 )
 material/0 = null
+
+[node name="AsciiRenderer" parent="." instance=ExtResource( 1 )]

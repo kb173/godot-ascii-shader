@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/ascii-shader/ascii.shader" type="Shader" id=1]
+[ext_resource path="res://addons/ascii-shader/character_map.png" type="Texture" id=2]
+
+
+
+[sub_resource type="QuadMesh" id=1]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 1 )
+shader_param/number_of_characters = 8.0
+shader_param/character_size = Vector2( 8, 16 )
+shader_param/character_map = ExtResource( 2 )
+
+[node name="AsciiRenderer" type="MeshInstance"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
